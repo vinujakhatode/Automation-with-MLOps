@@ -18,8 +18,8 @@
 # In[3]:
 
 
-train_path='./Coviddataset/Train'
-val_path ='./Coviddataset/Test'
+train_path='mlops/CovidDataset/Train'
+val_path ='mlops/CovidDataset/Val'
 
 
 # In[4]:
@@ -84,7 +84,7 @@ test_dataset=image.ImageDataGenerator(rescale=1./255)
 
 
 train_generator=train_datagen.flow_from_directory(
-    'CovidDataset/Train',
+    'mlops/CovidDataset/Train',
     target_size=(224,224),
     batch_size=32,
     class_mode='binary'
@@ -101,7 +101,7 @@ train_generator.class_indices
 
 
 validation_gen=test_dataset.flow_from_directory(
-    'CovidDataset/Val',
+    'mlops/CovidDataset/Val',
     target_size=(224,224),
     batch_size=32,
     class_mode='binary'
@@ -163,8 +163,8 @@ ytest=[]
 # In[19]:
 
 
-for i in os.listdir('./CovidDataset/Val/Normal/'):
-  img=image.load_img('./CovidDataset/Val/Normal/'+i, target_size=(224,224))
+for i in os.listdir('mlops/CovidDataset/Val/Normal/'):
+  img=image.load_img('mlops/CovidDataset/Val/Normal/'+i, target_size=(224,224))
   img=image.img_to_array(img)
   img=np.expand_dims(img,axis=0)
   p=mod.predict_classes(img)
@@ -175,8 +175,8 @@ for i in os.listdir('./CovidDataset/Val/Normal/'):
 # In[20]:
 
 
-for i in os.listdir('./CovidDataset/Val/Covid/'):
-  img=image.load_img('./CovidDataset/Val/Covid/'+i, target_size=(224,224))
+for i in os.listdir('mlops/CovidDataset/Val/Covid/'):
+  img=image.load_img('mlops/CovidDataset/Val/Covid/'+i, target_size=(224,224))
   img=image.img_to_array(img)
   img=np.expand_dims(img,axis=0)
   p=mod.predict_classes(img)
