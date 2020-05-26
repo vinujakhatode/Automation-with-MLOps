@@ -115,7 +115,7 @@ validation_gen=test_dataset.flow_from_directory(
 hist=model.fit_generator(
     train_generator,
     steps_per_epoch=8,
-    epochs=10,
+    epochs=5,
     validation_data=validation_gen,
     validation_steps=2
 )
