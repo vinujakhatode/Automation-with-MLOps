@@ -38,4 +38,5 @@ ytest=np.array(ytest)
 accuracy=accuracy_score(ytest,yact,normalize=True)
 
 accuracy=accuracy*100
+accuracy=int(accuracy)
 print(accuracy)
