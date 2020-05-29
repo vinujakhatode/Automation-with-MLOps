@@ -1,7 +1,7 @@
 import smtplib
 s = smtplib.SMTP('smtp.gmail.com', 587)
 s.starttls()
-s.login("vinujakhatode2050@gmail.com", "8888391845")
+s.login("vinujakhatode2050@gmail.com", "yourpassword")
 
 message = "Subject: Testing" +"\n" + "Hey developer, the model is trained and giving good accuracy!"
 
